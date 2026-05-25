@@ -162,12 +162,11 @@
     <record model="ir.ui.view" id="res_brand_list_view">
         <field name="name">res.brand.list (in partner_brand)</field>
         <field name="model">res.brand</field>
-        <field name="inherit_id" ref="base.view_partner_tree" />
-        <field name="mode">primary</field>
+        <field name="inherit_id" eval="False" />
         <field name="arch" type="xml">
-            <xpath expr="//list" position="attributes">
-                <attribute name="string">Brands</attribute>
-            </xpath>
+            <list string="Brands">
+                <field name="name"/>
+            </list>
         </field>
     </record>
     <record model="ir.actions.act_window" id="res_brand_act_window">
