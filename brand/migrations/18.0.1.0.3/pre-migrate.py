@@ -22,7 +22,9 @@ def migrate(cr, version):
         UPDATE ir_ui_view
         SET inherit_id = NULL,
             mode = 'primary',
-            arch_db = '<list string="Brands"><field name="name"/></list>'
+            arch_db = jsonb_build_object(
+                'en_US', '<list string="Brands"><field name="name"/></list>'
+            )
         WHERE id = (
             SELECT res_id FROM ir_model_data
             WHERE module = 'brand'
